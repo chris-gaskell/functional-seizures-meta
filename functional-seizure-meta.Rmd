@@ -1,3 +1,125 @@
+--- 
+title: "The effectiveness of psychological therapy for treatment of functional seizures in adults"
+subtitle: "A systematic review and meta-analysis"
+author:
+- Dr. Chris Gaskell
+- Dr. Niall Power
+- Dr. Gregg Rawlings
+- Dr. Barbora Novakova
+- Dr. Mel Simmonds-Buckley
+- Dr. Stephen Kellett
+- Prof. Markus Reuber
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output:
+  html_docucment: default
+  word_document:
+    reference_docx: my-styles.docx
+  bookdown:: pdf_book
+  pdf_document:
+    citation_package: default
+    toc: false
+    toc_depth: 1
+    keep_tex: yes
+fontsize: 12pt
+indent: true
+bibliography: [bib/book.bib, bib/packages.bib]
+csl: csl/apa7.csl
+classoption: openany
+always_allow_html: yes
+description: This document reports the results of a meta-analysis on naturalistic
+  psychotherapy outcomes
+documentclass: book
+github-repo: rstudio/functional-seizures-meta
+subparagraph: yes
+header-includes:
+link-citations: yes
+biblio-style: apalike
+geometry: "left=2cm, right=2cm, top=2cm, bottom=2cm"
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r packages, include=FALSE, warning=F, message=F}
+# Bookdown
+library(bookdown)
+library(servr)
+library(tinytex)
+library(rmarkdown)
+library(knitr)
+# Meta-analysis
+library(metafor)
+library(meta)
+library(dmetar)
+# Data manipulation
+library(tidyverse)
+library(readxl)
+# Tables
+library(janitor)
+library(kableExtra)
+# Other
+library(irr)
+
+# Global Environemnt Options
+options(scipen = 99999)
+options(warn = 1)
+rm(list = ls(all.names = TRUE)) #will clear all objects includes hidden objects.
+gc() #free up memrory and report the memory usage.
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r data-input, echo=FALSE, include=FALSE}
+source("scripts/cleaning.R")
+```
+
+```{r write-bib, include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
+
+# Abstract {#Abstract .unnumbered}
+
+**Objective:** 
+
+**Method:** 
+
+**Results:**
+
+**Conclusion:**
+
+**Keywords:**
+
+**Clinical Significance of this Article:**
+
+
+<!--chapter:end:index.Rmd-->
+
+Introduction
+Functional seizures (FS) are episodes characterized by alterations of awareness, self-control and/or perception (Reuber & Rawlings, 2017; Brown & Reuber, 2016). FS are known by a range of different terms, such as non-epileptic attack disorder, psychogenic nonepileptic seizures and dissociative seizures (Rawlings & Reuber, 2018). FS are considered as being out of the patient’s own control and thereby distinct from factitious or malingered seizures (Brown & Reuber, 2016).
+FS can superficially resemble epileptic seizures but are not associated with epileptiform activity. Instead, FS have been conceptualized as an automatic response to internal or external cues that are perceived as adverse, distressing, or threatening (Brown & Reuber, 2016). FS are more common in certain groups; for example, in females, those from a lower socioeconomic status (Goldstein et al., 2020) and people with a learning disability (Rawlings et al., 2021). The prevalence of FS has been estimated as 50/100.000 per year (Kanemoto et al., 2017). Together with syncope and epilepsy FS are one of the three common causes of transient loss of consciousness (TLOC). As such, they account for up to 20% of referrals to outpatient seizure clinics (Angus-Leppan et al., 2008). In the current nosologies, FS are classified as a psychiatric disorder (ICD and DSM REF). However, they have been named an “orphan” disorder (Baslet, 2012), with patients at risk of falling between different specialities and a lack of clarity about who is responsible for treating people with this diagnosis (Rawlings et al., 2018). 
+ Individuals with FS are at a higher risk of experiencing axis I (Brown and Reuber, 2016) and axis II disorders (Reuber et al., 2004), in addition to psychosocial and environmental difficulties (axis IV) (Robson et al., 2018) and they report lower health-related quality of life (axis V) (Jones, Reuber & Norman 2016). Unfortunately, the prognosis seems to be poor for a substantial proportion of people with FS (Reuber et al., 2003). However, predictors of a positive outcome (i.e., seizure cessation) include prompt and supportive delivery of the diagnosis, collaboration, mental and physical health review (including discontinuation of any of anti-seizure medications provided for a previous erroneous diagnosis of epilepsy), and engagement in a suitable form of psychological treatment (REF).  
+Psychological therapy is considered the intervention of choice for FS (Goldstein et al., 2004). Specific forms of psychological intervention which have been investigated (to vary extents) for their effectiveness with functional seizures includes, cognitive-behavioural therapy, psychoanalytic psychotherapy, mindfulness, eye movement desensitization and reprocessing (EMDR), family therapy, motivational interviewing, psychoeducation, and hypnosis. Despite this, there remain many uncertainties regarding treatment (Rawlings & Reuber, 2018). These include questions about the effectiveness, efficacy, acceptability, mechanisms of change; and then also what is the optimal: therapeutic modality, duration, and outcome measure. A systematic review and meta-analysis were conducted in September 2016 examining the evidence for effectiveness of psychological interventions in treating FS. In total, 13 studies were found to be eligible at the time, representing data from 228 participants with FS. The authors focused on seizure frequency as the primary outcome, demonstrating that just under half (47%) were seizure free at the end of treatment; moreover, over 80% of those who completed treatment had experienced a seizure reduction of at least 50% (Carlson & Perry, 2016).
+Although psychological treatments for FS have, therefore, been the subject of a meta-analysis previously, it is important to recognise the changing landscape in this research area since the review by Carlson and Perry (2017) was conducted. The largest randomised controlled trial to date examining psychological therapy for FS was published in 2020 and involved 368 patients with FS (Goldstein et al., 2020). What is more, there is growing debate regarding whether seizure frequency is the most appropriate outcome when evaluating treatments, not least because psychological factors such as depression and anxiety have been found to be a stronger predictor of health-related quality of life (HRQoL) in people with FS than seizure frequency and may potentially be more amenable to change in treatment (Rawlings et al., 2017). Other outcome domains such as HRQoL, psychosocial or occupational functioning have also been proposed as relevant to capture in assessment and treatment of patients with functional neurological disorders, including FS (Pick et al., 2020)
+Review questions:
+For adults accessing psychological interventions for functional seizures:
+1.	What is the pooled treatment effectiveness for outcome studies exploring psychological interventions for change in seizure specific outcomes (i.e., frequency, intensity, freedom).
+2.	Are their differences in rates of effectiveness across non-seizure related outcome domains (HR-QoL, psychological distress, depression, anxiety, functioning, dissociation etc.)?
+3.	Are there characteristics of patients, treatments or study design that moderate the relationship between psychological intervention and treatment outcomes?
+a.	For identified moderator variables which have a body of evidence from the broader psychotherapy literature, it will be hypothesized that these findings remain consistent for functional seizures (i.e., confirmatory variables).
+b.	For moderator variables without a body of evidence, there will be no significant difference between subgroups (i.e., exploratory variables).
+4.	Are changes made during treatment durable? (i.e., are improvements following the acute stage of treatment maintained at follow-up).
+
+<!--chapter:end:01-intro.Rmd-->
+
+# Literature
+
+Here is a review of existing methods.
+
+<!--chapter:end:02-literature.Rmd-->
+
 Systematic search
 Four electronic databases (CINAHL, PsycINFO, MEDLINE, Cochrane Reviews) will be searched for relevant articles using pre-identified search terms. Search term combinations will include both a diagnosis and treatment term. Diagnosis terms will include functional seizures and common diagnostic equivalents (e.g., non-epileptic attack disorder, psychogenic nonepileptic seizures, dissociative seizures, conversion seizures, pseudoseizures). Broader diagnostic terms which do not necessarily confirm seizure involvement (e.g., conversion disorder, psychosomatic illness, functional neurological disorder) will not be included. For treatment, the terms psychotherapy, psychological therapy, and psychological treatment will be used (see Table 1). 
 Table 1: 
@@ -70,3 +192,28 @@ Bias has been described as the systematic error, or deviation from the truth wit
 The current review will use the ROB 2.0 for quality appraisal. This tool rates primary studies based on six criteria: (1) randomization procedure, (2) allocation concealment, (3) blinding of personnel, (4) blinding of outcome assessment, (5) incomplete outcome data, and (6) selective outcome reporting. This review will also include (7) treatment implementation which has been acknowledged as highly relevant for psychotherapy outcome research (Munder & Barth, 2018). Each criterion is rated as ‘high’, ‘low’ and ‘unclear’, with an overall study rating then being allocated. Finally, we will also use the functional seizure specific quality criteria used in a recent systematic review of functional seizures (Brown & Reuber, 2016). Criteria include: (1) explicit reference to procedures that could allow PNES to be distinguished from an anxiety disorder; (2) comparability of PNES and epilepsy control groups in terms of age and gender; (3) consecutive recruitment of PNES group; (4) comparability of PNES and other control groups in terms of age and gender; (5) explicit reference to exclusion of PNES in other control groups; (6) adequately powered; (6) explicit reference to all PNES and epilepsy patients having video-EEG confirmed diagnoses; (7) explicit reference to exclusion of concurrent epilepsy in PNES group; (8) explicit reference to exclusion of PNES in epilepsy control group.
 High risk of bias (studies or domains) is suspected to lead to over-estimation of treatment effect-sizes however within the field of psychotherapy there has been inconsistent findings reported (e.g., Cuijpers et al, 2010; Barth et al., 2013). Psychotherapy researchers are recommended to incorporate risk of bias results into meta-analytic analyses (Munder & Barth, 2018; Boutron et al., 2021). This can be performed through (i) excluding studies based on quality, or (ii) assessing the degree to which risk of bias may moderate treatment outcome (Boutron et al., 2021). The current study will use the latter approach, comparing between risk of bias classifications. 
 The overall methodological quality of the evidence will be assessed by three reviewers using guidelines for the Grading of Recommendations, Assessment, Development and Evaluations (GRADE, Guyatt et al., 2008). This framework rates evidence quality for each meta-analytic outcome based on included study designs. Individual ratings are initially provided (high, moderate, low or very low) and are then downgraded (or upgraded) through evaluation of five separate criteria; risk of bias within included studies, inconsistencies in aggregated treatment effect, indirectness of evidence, imprecision and publication bias.
+
+<!--chapter:end:03-method.Rmd-->
+
+# Applications
+
+Some _significant_ applications are demonstrated in this chapter.
+
+## Example one
+
+## Example two
+
+<!--chapter:end:04-application.Rmd-->
+
+# Final Words
+
+We have finished a nice book.
+
+<!--chapter:end:05-summary.Rmd-->
+
+`r if (knitr:::is_html_output()) '
+# References {-}
+'`
+
+<!--chapter:end:06-references.Rmd-->
+

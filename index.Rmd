@@ -1,15 +1,14 @@
 --- 
-title: "The effectiveness of psychological therapy for treatment of functional seizures in adults: A systematic review and meta-analysis"
+title: "The effectiveness of psychological therapy for treatment of functional seizures in adults"
 subtitle: "A systematic review and meta-analysis"
 author:
-- "Yihui Xie"
-- "Yihui Xie"
-- "Yihui Xie"
-- "Yihui Xie"
-- "Yihui Xie"
-- "Yihui Xie"
-- "Yihui Xie"
-- "Yihui Xie"
+- Dr. Chris Gaskell
+- Dr. Niall Power
+- Dr. Gregg Rawlings
+- Dr. Barbora Novakova
+- Dr. Mel Simmonds-Buckley
+- Dr. Stephen Kellett
+- Prof. Markus Reuber
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output:
