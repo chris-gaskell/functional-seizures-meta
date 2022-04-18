@@ -1,0 +1,5 @@
+book_filename: "functional-seizure-meta"
+language:
+  ui:
+    chapter_name: "Chapter "
+delete_merged_file: true

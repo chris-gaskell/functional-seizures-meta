@@ -1,0 +1,97 @@
+--- 
+title: "The effectiveness of psychological therapy for treatment of functional seizures in adults: A systematic review and meta-analysis"
+subtitle: "A systematic review and meta-analysis"
+author:
+- "Yihui Xie"
+- "Yihui Xie"
+- "Yihui Xie"
+- "Yihui Xie"
+- "Yihui Xie"
+- "Yihui Xie"
+- "Yihui Xie"
+- "Yihui Xie"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output:
+  html_docucment: default
+  word_document:
+    reference_docx: my-styles.docx
+  bookdown:: pdf_book
+  pdf_document:
+    citation_package: default
+    toc: false
+    toc_depth: 1
+    keep_tex: yes
+fontsize: 12pt
+indent: true
+bibliography: [bib/book.bib, bib/packages.bib]
+csl: csl/apa7.csl
+classoption: openany
+always_allow_html: yes
+description: This document reports the results of a meta-analysis on naturalistic
+  psychotherapy outcomes
+documentclass: book
+github-repo: rstudio/functional-seizures-meta
+subparagraph: yes
+header-includes:
+link-citations: yes
+biblio-style: apalike
+geometry: "left=2cm, right=2cm, top=2cm, bottom=2cm"
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r packages, include=FALSE, warning=F, message=F}
+# Bookdown
+library(bookdown)
+library(servr)
+library(tinytex)
+library(rmarkdown)
+library(knitr)
+# Meta-analysis
+library(metafor)
+library(meta)
+library(dmetar)
+# Data manipulation
+library(tidyverse)
+library(readxl)
+# Tables
+library(janitor)
+library(kableExtra)
+# Other
+library(irr)
+
+# Global Environemnt Options
+options(scipen = 99999)
+options(warn = 1)
+rm(list = ls(all.names = TRUE)) #will clear all objects includes hidden objects.
+gc() #free up memrory and report the memory usage.
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r data-input, echo=FALSE, include=FALSE}
+source("scripts/cleaning.R")
+```
+
+```{r write-bib, include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
+
+# Abstract {#Abstract .unnumbered}
+
+**Objective:** 
+
+**Method:** 
+
+**Results:**
+
+**Conclusion:**
+
+**Keywords:**
+
+**Clinical Significance of this Article:**
+
