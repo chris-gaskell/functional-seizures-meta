@@ -23,7 +23,7 @@ output:
     keep_tex: yes
 fontsize: 12pt
 indent: true
-bibliography: [bib/book.bib, bib/packages.bib]
+bibliography: [packages.bib]
 csl: csl/apa7.csl
 classoption: openany
 always_allow_html: yes
@@ -59,7 +59,6 @@ library(readxl)
 library(janitor)
 library(kableExtra)
 # Other
-library(irr)
 
 # Global Environemnt Options
 options(scipen = 99999)
@@ -94,3 +93,6 @@ knitr::write_bib(c(
 
 **Clinical Significance of this Article:**
 
+
+
+\newpage
